@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SoccerApp">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <meta charset="utf-8">
+    <title>Soccer Sub Finder</title>
+  </head>
+  <body>
+
+    <div class="container" ng-controller="SoccerController">
+
+    <h1>Soccer Sub Finder</h1>
+      <input ng-model="post.level" class="form-control" placeholder="Level of Play" />
+      <input ng-model="post.date" class="form-control" placeholder="Game Date" />
+      <input ng-model="post.contact" class="form-control" placeholder="Contact Name" />
+      <input ng-model="post.email" class="form-control" placeholder="Contact Email" />
+      <textarea ng-model="post.info" class="form-control" placeholder="Additional Info"></textarea>
+      <button ng-click="createPost(post)" class="btn btn-primary btn-block">Submit</button>
+      <button ng-click="updatePost(post)" class="btn btn-success btn-block">Update</button>
+
+    <div ng-repeat="post in posts">
+      <h2>
+        {{post.level}}
+        <a ng-click="editPost(post._id)" class="pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a ng-click="deletePost(post._id)" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+      </h2>
+      <em>{{post.date}}</em>
+      <p>{{post.contact}}</p>
+      <p>{{post.email}}</p>
+      <p>{{post.info}}</p>
+      <p>{{post.posted}}</p>
+    </div>
+
+    </div>
+
+  </body>
+</html>
